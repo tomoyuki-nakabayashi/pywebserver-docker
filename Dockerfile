@@ -10,10 +10,8 @@ RUN apt-get install -y python3-pip
 RUN pip3 uninstall pep8 ; pip3 install pep8 ; pip3 install --upgrade pep8
 RUN pip3 install bottle
 
-ADD ./app /node-hello
-
-ENV NODE_ENV production
+ADD ./app /py-webserver
 
 EXPOSE 3000
 	
-CMD ["node", "/node-hello/app.js"]
+CMD ["python", "/py-webserver/app.py"]
